@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_practice/pages/homepage.dart';
 
 void main() {
   runApp(const App());
@@ -11,9 +12,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'UI_Practice',
-      home: Scaffold(
-        backgroundColor: Colors.amber,
-      ),
+      theme: ThemeData(scaffoldBackgroundColor: Colors.grey),
+      home: HomePage(),
     );
   }
 }
