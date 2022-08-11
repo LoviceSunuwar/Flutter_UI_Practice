@@ -14,15 +14,20 @@ class HomePage extends StatelessWidget {
           height: _deviceHeight,
           width: _deviceWidth,
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-          child: _dropdownwidget(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [_justTitle(), _dropdownwidget()],
+          ),
         ),
       ),
     );
   }
 
-  Widget _simiansTitle() {
+  Widget _justTitle() {
     return const Text(
-      "OG Simians",
+      "NTH to C",
       style: TextStyle(
         color: Colors.white,
         fontSize: 70,
@@ -31,7 +36,7 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _simainsbody() {
+  Widget _justbody() {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
@@ -43,18 +48,27 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _dropdownwidget() {
-    List<DropdownMenuItem<String>> _items = ['first', 'second', 'third'].map(
-      (e) {
-        return DropdownMenuItem(
-          child: Text(e),
-          value: e,
-        );
-      },
-    ).toList();
+    List<String> _items = ['first', 'second', 'third'];
+
     return Container(
+      width: _deviceWidth,
+      padding: EdgeInsets.symmetric(horizontal: _deviceHeight * 0.05),
+      decoration: BoxDecoration(
+          color: Colors.red, borderRadius: BorderRadius.circular(10)),
       child: DropdownButton(
+        underline: Container(),
+        dropdownColor: Color.fromRGBO(53, 53, 53, 1.0),
+        style: TextStyle(color: Colors.white),
+        value: _items.first,
         onChanged: (_) {},
-        items: _items,
+        items: _items.map(
+          (e) {
+            return DropdownMenuItem(
+              child: Text(e),
+              value: e,
+            );
+          },
+        ).toList(),
       ),
     );
   }
