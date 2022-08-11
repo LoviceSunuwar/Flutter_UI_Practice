@@ -14,7 +14,7 @@ class HomePage extends StatelessWidget {
           height: _deviceHeight,
           width: _deviceWidth,
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-          child: _simiansTitle(),
+          child: _dropdownwidget(),
         ),
       ),
     );
@@ -38,6 +38,23 @@ class HomePage extends StatelessWidget {
           fit: BoxFit.fill,
           image: AssetImage("assets/images/abc.png"),
         ),
+      ),
+    );
+  }
+
+  Widget _dropdownwidget() {
+    List<DropdownMenuItem<String>> _items = ['first', 'second', 'third'].map(
+      (e) {
+        return DropdownMenuItem(
+          child: Text(e),
+          value: e,
+        );
+      },
+    ).toList();
+    return Container(
+      child: DropdownButton(
+        onChanged: (_) {},
+        items: _items,
       ),
     );
   }
