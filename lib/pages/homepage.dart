@@ -19,11 +19,7 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              _justTitle(),
-              _dropdownwidget(),
-              _alphabetdropdownwidget(),
-            ],
+            children: [_justTitle(), _whole()],
           ),
         ),
       ),
@@ -52,13 +48,38 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  Widget _whole() {
+    return Container(
+      height: _deviceHeight * 0.25,
+      width: _deviceHeight * 0.8,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _dropdownwidget(),
+          _alphabetdropdownwidget(),
+        ],
+      ),
+    );
+  }
+
   Widget _dropdownwidget() {
     return CustomDropDown(
         values: ['first', 'second', 'third'], width: _deviceWidth);
   }
 
   Widget _alphabetdropdownwidget() {
-    return CustomDropDown(
-        values: ['A', 'B', 'C', 'D'], width: _deviceWidth * 0.45);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        CustomDropDown(
+            values: ['A', 'B', 'C', 'D'], width: _deviceWidth * 0.45),
+        CustomDropDown(
+            values: ['AA', 'BB', 'CC', 'DD '], width: _deviceWidth * 0.40),
+      ],
+    );
   }
 }
