@@ -51,15 +51,27 @@ class HomePage extends StatelessWidget {
   Widget _whole() {
     return Container(
       height: _deviceHeight * 0.25,
-      width: _deviceHeight * 0.8,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          _dropdownwidget(),
-          _alphabetdropdownwidget(),
-        ],
+        children: [_dropdownwidget(), _alphabetdropdownwidget(), _button()],
+      ),
+    );
+  }
+
+  Widget _button() {
+    return Container(
+      margin: EdgeInsets.only(bottom: _deviceHeight * 0.01),
+      decoration: BoxDecoration(
+          color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
+      width: _deviceWidth,
+      child: MaterialButton(
+        onPressed: () {},
+        child: Text(
+          "Book",
+          style: TextStyle(color: Colors.black),
+        ),
       ),
     );
   }
