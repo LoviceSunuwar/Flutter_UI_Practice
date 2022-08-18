@@ -15,11 +15,19 @@ class HomePage extends StatelessWidget {
           height: _deviceHeight,
           width: _deviceWidth,
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [_justTitle(), _whole()],
+          child: Stack(
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [_justTitle(), _whole()],
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: _justbody(),
+              )
+            ],
           ),
         ),
       ),
@@ -39,10 +47,12 @@ class HomePage extends StatelessWidget {
 
   Widget _justbody() {
     return Container(
+      height: _deviceHeight * 0.50,
+      width: _deviceWidth * 0.50,
       decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.fill,
-          image: AssetImage("assets/images/abc.png"),
+          image: AssetImage("assets/images/nth.jpeg"),
         ),
       ),
     );
