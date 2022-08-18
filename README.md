@@ -1,7 +1,9 @@
 # ui_practice
 
-A new Flutter project.
 
+UI practice on the flutter app
+
+use of media query, column, row, incapsulation, calling of another widget or class, making reusable widgets, importing assets , color, decoration, align , stack , material button.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
