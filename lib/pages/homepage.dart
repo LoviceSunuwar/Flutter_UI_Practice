@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_practice/widgets/custom_dropdownwidget.dart';
 
 class HomePage extends StatelessWidget {
   late double _deviceHeight, _deviceWidth;
@@ -18,7 +19,11 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [_justTitle(), _dropdownwidget()],
+            children: [
+              _justTitle(),
+              _dropdownwidget(),
+              _alphabetdropdownwidget(),
+            ],
           ),
         ),
       ),
@@ -48,28 +53,12 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _dropdownwidget() {
-    List<String> _items = ['first', 'second', 'third'];
+    return CustomDropDown(
+        values: ['first', 'second', 'third'], width: _deviceWidth);
+  }
 
-    return Container(
-      width: _deviceWidth,
-      padding: EdgeInsets.symmetric(horizontal: _deviceHeight * 0.05),
-      decoration: BoxDecoration(
-          color: Colors.red, borderRadius: BorderRadius.circular(10)),
-      child: DropdownButton(
-        underline: Container(),
-        dropdownColor: Color.fromRGBO(53, 53, 53, 1.0),
-        style: TextStyle(color: Colors.white),
-        value: _items.first,
-        onChanged: (_) {},
-        items: _items.map(
-          (e) {
-            return DropdownMenuItem(
-              child: Text(e),
-              value: e,
-            );
-          },
-        ).toList(),
-      ),
-    );
+  Widget _alphabetdropdownwidget() {
+    return CustomDropDown(
+        values: ['A', 'B', 'C', 'D'], width: _deviceWidth * 0.45);
   }
 }
